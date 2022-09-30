@@ -72,18 +72,5 @@ module.exports = {
 
     // react hooks
     "react-hooks/rules-of-hooks": "error",
-
-    // prettier
-    "prettier/prettier": [
-      "error",
-      {
-        bracketSpacing: true,
-        printWidth: 80,
-        semi: true,
-        singleQuote: true,
-        trailingComma: "all",
-        useTabs: false,
-      },
-    ],
   },
 };
