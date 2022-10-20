@@ -1,11 +1,13 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
 
-export const HomeScreen = () => {
+export const HomeScreen = ({ navigation }: any) => {
   return (
     <View style={styles.container}>
       <Text>HomeScreen</Text>
-      <StatusBar style="auto" />
+      <Button
+        title="Go to Details"
+        onPress={() => navigation.navigate("PhotoWereWolf")}
+      />
     </View>
   );
 };
