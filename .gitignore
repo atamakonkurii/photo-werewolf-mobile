@@ -12,3 +12,9 @@ web-build/
 
 # macOS
 .DS_Store
+
+# local build時のpod installでruby3.0.0にしたら動くようになった
+.ruby-version
+
+# local build成功時に出力されるzipファイルの名前
+build-*
