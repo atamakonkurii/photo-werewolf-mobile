@@ -1,10 +1,11 @@
 import { StatusBar } from "expo-status-bar";
 import { Button, StyleSheet, Text, View } from "react-native";
 
-export const PhotoWerewolfScreen = ({ navigation }: any) => {
+export const PhotoWerewolfScreen = ({ route, navigation }: any) => {
+  console.log(route);
   return (
     <View style={styles.container}>
-      <Text>PhotoWerewolfScreen</Text>
+      <Text>{route.params.roomId}</Text>
       <Button title="Go back" onPress={() => navigation.goBack()} />
       <StatusBar style="auto" />
     </View>
@@ -14,7 +15,7 @@ export const PhotoWerewolfScreen = ({ navigation }: any) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#222831",
     alignItems: "center",
     justifyContent: "center",
   },
