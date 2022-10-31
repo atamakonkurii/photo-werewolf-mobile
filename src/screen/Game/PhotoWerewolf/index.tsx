@@ -5,7 +5,7 @@ export const PhotoWerewolfScreen = ({ route, navigation }: any) => {
   console.log(route);
   return (
     <View style={styles.container}>
-      <Text>{route.params.roomId}</Text>
+      <Text>{route.params.roomName}</Text>
       <Button title="Go back" onPress={() => navigation.goBack()} />
       <StatusBar style="auto" />
     </View>

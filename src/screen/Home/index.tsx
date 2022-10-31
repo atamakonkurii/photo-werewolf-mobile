@@ -12,33 +12,33 @@ import { CreateRoomModal } from "./component/CreateRoomModal";
 
 export const HomeScreen = ({ navigation }: any) => {
   const [roomId, onChangeRoomId] = useState("");
+  const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <>
       <Header />
-      <CreateRoomModal />
       <View style={styles.container}>
         <Text style={styles.mainText}>写真人狼</Text>
         <Image
           style={styles.logo}
           source={require("../../../assets/img/character_hitsuji_ookami.webp")}
         />
-        <Text style={styles.subText}>コードを入力して部屋に入る</Text>
+        <Text style={styles.text}>コードを入力して部屋に入る</Text>
         <TextInput
           style={styles.input}
           onChangeText={onChangeRoomId}
           value={roomId}
-          placeholder="部屋コードを入力してください"
+          placeholder="#部屋コード"
         />
         <Text style={styles.subText}>もしくは</Text>
-        <Pressable
-          style={styles.button}
-          onPress={() =>
-            navigation.navigate("PhotoWereWolf", { roomId: roomId })
-          }
-        >
-          <Text style={styles.subText}>部屋を作る</Text>
+        <Pressable style={styles.button} onPress={() => setModalVisible(true)}>
+          <Text style={styles.buttonText}>部屋を作る</Text>
         </Pressable>
+        <CreateRoomModal
+          modalVisible={modalVisible}
+          setModalVisible={setModalVisible}
+          navigation={navigation}
+        />
       </View>
     </>
   );
@@ -54,33 +54,49 @@ const styles = StyleSheet.create({
   mainText: {
     color: "#FFFFFF",
     fontSize: 60,
-    fontWeight: "bold",
+    fontWeight: "900",
+    marginBottom: 10,
+  },
+  text: {
+    color: "#FFFFFF",
+    fontSize: 14,
+    fontWeight: "500",
   },
   subText: {
     color: "#FFFFFF",
     fontSize: 14,
     fontWeight: "500",
+    marginBottom: 10,
   },
   logo: {
     width: 80,
     height: 80,
+    marginBottom: 10,
   },
   input: {
-    height: 40,
-    width: 240,
+    height: 50,
+    width: 150,
+    fontSize: 18,
+    fontWeight: "700",
     margin: 12,
     borderWidth: 1,
     padding: 10,
-    borderRadius: 10,
+    borderRadius: 30,
     backgroundColor: "#fff",
+    textAlign: "center",
   },
   button: {
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 12,
     paddingHorizontal: 32,
-    borderRadius: 4,
+    borderRadius: 30,
     elevation: 3,
-    backgroundColor: "orange",
+    backgroundColor: "#F1A533",
+  },
+  buttonText: {
+    color: "#FFFFFF",
+    fontSize: 18,
+    fontWeight: "800",
   },
 });
