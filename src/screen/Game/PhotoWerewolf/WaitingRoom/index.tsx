@@ -1,12 +1,20 @@
-import { useState } from "react";
-import { StyleSheet, Text, View, TextInput, Pressable } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Pressable,
+  Linking,
+} from "react-native";
 import { Header } from "../../../../component/Header";
-import { CreateRoomModal } from "../../../Home/component/CreateRoomModal";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { library, IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import { faLine, faSquareTwitter } from "@fortawesome/free-brands-svg-icons";
+library.add(faLine as IconDefinition);
+library.add(faSquareTwitter as IconDefinition);
 import Clipboard from "@react-native-clipboard/clipboard";
 
 export const WaitingRoom = ({ navigation }: any) => {
-  const [roomId, onChangeRoomId] = useState("");
-  const [modalVisible, setModalVisible] = useState(false);
   const testNumber = 50001;
 
   return (
@@ -17,8 +25,28 @@ export const WaitingRoom = ({ navigation }: any) => {
           <Text style={styles.roomNameText}>写真人狼部屋</Text>
           <View style={{ flexDirection: "row" }}>
             <Text style={styles.text}>部屋コード</Text>
-            <Text style={styles.text}>Twitter</Text>
-            <Text style={styles.text}>LINE</Text>
+            <Pressable
+              onPress={() => {
+                Linking.openURL("https://twitter.com/atamakonkurii");
+              }}
+            >
+              <FontAwesomeIcon
+                style={styles.fontAwesome}
+                size={40}
+                icon={faSquareTwitter}
+              />
+            </Pressable>
+            <Pressable
+              onPress={() => {
+                Linking.openURL("https://line.me/ja/");
+              }}
+            >
+              <FontAwesomeIcon
+                style={styles.fontAwesome}
+                size={40}
+                icon={faLine}
+              />
+            </Pressable>
           </View>
           <Pressable
             style={styles.clipboard}
@@ -63,17 +91,11 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     fontSize: 14,
     fontWeight: "500",
+    marginTop: "auto",
+    marginHorizontal: 10,
   },
-  subText: {
-    color: "#FFFFFF",
-    fontSize: 14,
-    fontWeight: "500",
-    marginBottom: 10,
-  },
-  logo: {
-    width: 80,
-    height: 80,
-    marginBottom: 10,
+  fontAwesome: {
+    color: "#8D97A4",
   },
   clipboard: {
     height: 50,
@@ -86,15 +108,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     justifyContent: "center",
     alignItems: "center",
-  },
-  button: {
-    alignItems: "center",
-    justifyContent: "center",
-    paddingVertical: 12,
-    paddingHorizontal: 32,
-    borderRadius: 30,
-    elevation: 3,
-    backgroundColor: "#F1A533",
   },
   clipboardSharpText: {
     color: "#6B7280",
