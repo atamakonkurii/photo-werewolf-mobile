@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { PhotoWerewolfScreen } from "./screen/Game/PhotoWerewolf";
+import { WaitingRoom } from "./screen/Game/PhotoWerewolf";
 import { HomeScreen } from "./screen/Home";
 import { StyleSheet, SafeAreaView } from "react-native";
 
@@ -18,7 +18,7 @@ export default function App() {
           }}
         >
           <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="PhotoWereWolf" component={PhotoWerewolfScreen} />
+          <Stack.Screen name="WaitingRoom" component={WaitingRoom} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView>
