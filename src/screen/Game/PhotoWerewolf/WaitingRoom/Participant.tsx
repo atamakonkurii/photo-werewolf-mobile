@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Pressable } from "react-native";
 
-export const Participant = () => {
+export const Participant = ({ navigation }: any) => {
   return (
     <>
       <View style={styles.square}>
@@ -19,7 +19,10 @@ export const Participant = () => {
             <Text style={styles.participantText}>かずき</Text>
           </View>
 
-          <Pressable style={styles.button} onPress={() => alert("スタート")}>
+          <Pressable
+            style={styles.button}
+            onPress={() => navigation.navigate("PhotoSelectRoom")}
+          >
             <Text style={styles.buttonText}>スタート</Text>
           </Pressable>
         </View>

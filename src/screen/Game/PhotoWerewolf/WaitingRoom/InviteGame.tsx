@@ -59,7 +59,6 @@ const styles = StyleSheet.create({
   square: {
     borderWidth: 1,
     borderRadius: 50,
-    marginTop: 100,
     borderColor: "#F1A533",
     alignItems: "center",
     width: "80%",

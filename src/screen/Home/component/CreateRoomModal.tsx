@@ -51,7 +51,7 @@ export const CreateRoomModal = (props: Props) => {
               <Pressable
                 style={[styles.determineButton, styles.determineButtonColor]}
                 onPress={() => {
-                  navigation.navigate("WaitingRoom", { roomName: roomName });
+                  navigation.navigate("PhotoWereWolf", { roomName: roomName });
                   onChangeRoomName("");
                   setModalVisible(!modalVisible);
                 }}
