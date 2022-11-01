@@ -10,7 +10,7 @@ export const WaitingRoom = ({ navigation }: any) => {
       <WaitingRoomHeader navigation={navigation} />
       <View style={styles.container}>
         <InviteGame />
-        <Participant />
+        <Participant navigation={navigation} />
       </View>
     </>
   );
