@@ -38,15 +38,27 @@ export const CreateRoomModal = (props: Props) => {
               value={roomName}
               placeholder="例)写真人狼部屋"
             />
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => {
-                navigation.navigate("PhotoWereWolf", { roomName: roomName });
-                setModalVisible(!modalVisible);
-              }}
-            >
-              <Text style={styles.textStyle}>決定</Text>
-            </Pressable>
+            <View style={{ flexDirection: "row" }}>
+              <Pressable
+                style={[styles.closeButton, styles.closeButtonColor]}
+                onPress={() => {
+                  setModalVisible(!modalVisible);
+                  onChangeRoomName("");
+                }}
+              >
+                <Text style={styles.textStyle}>閉じる</Text>
+              </Pressable>
+              <Pressable
+                style={[styles.determineButton, styles.determineButtonColor]}
+                onPress={() => {
+                  navigation.navigate("WaitingRoom", { roomName: roomName });
+                  onChangeRoomName("");
+                  setModalVisible(!modalVisible);
+                }}
+              >
+                <Text style={styles.textStyle}>決定</Text>
+              </Pressable>
+            </View>
           </View>
         </View>
       </Modal>
@@ -76,19 +88,24 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5,
   },
-  button: {
+  determineButton: {
     borderRadius: 30,
     padding: 10,
     width: 100,
-    elevation: 2,
+    marginHorizontal: 3,
   },
-  buttonOpen: {
-    backgroundColor: "#F194FF",
-  },
-  buttonClose: {
+  determineButtonColor: {
     backgroundColor: "#F1A533",
+  },
+  closeButton: {
+    borderRadius: 30,
+    padding: 10,
+    width: 100,
+    marginHorizontal: 3,
+  },
+  closeButtonColor: {
+    backgroundColor: "#908e8a",
   },
   textStyle: {
     color: "#FFFFFF",
