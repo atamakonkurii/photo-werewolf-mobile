@@ -21,7 +21,7 @@ export const HomeScreen = ({ navigation }: any) => {
         <Text style={styles.mainText}>写真人狼</Text>
         <Image
           style={styles.logo}
-          source={require("../../../assets/img/character_hitsuji_ookami.webp")}
+          source={require("photo-werewolf/assets/img/character_hitsuji_ookami.webp")}
         />
         <Text style={styles.text}>コードを入力して部屋に入る</Text>
         <TextInput
